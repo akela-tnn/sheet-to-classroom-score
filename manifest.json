@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Classroom Sheet Grader",
+  "version": "1.0",
+  "description": "從公開的 Google Sheet 自動對應姓名並匯入成績至 Classroom",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://classroom.google.com/*",
+    "https://docs.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://classroom.google.com/*/gb/*"],
+      "js": ["content.js"],
+      "css": ["style.css"]
+    }
+  ]
+}

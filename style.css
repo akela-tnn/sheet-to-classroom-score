@@ -1,0 +1,64 @@
+/* 浮動按鈕 */
+#csg-floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #1967d2;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: background-color 0.2s;
+}
+#csg-floating-btn:hover {
+  background-color: #1557b0;
+}
+
+/* 遮罩與對話視窗 */
+#csg-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  /* 1. 將背景改為透明 */
+  background: transparent;
+  /* 2. 允許滑鼠點擊穿透遮罩，這樣你就能點擊背後的 Classroom 畫面 */
+  pointer-events: none; 
+  z-index: 10000;
+  display: flex;
+  /* 3. 將視窗往上靠，避免擋住中間的成績欄位 */
+  align-items: flex-start;
+  padding-top: 10vh; 
+  justify-content: center;
+}
+#csg-modal {
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  /* 加深陰影，加上邊框，讓視窗在透明背景中更清楚 */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* 4. 恢復視窗本身的點擊功能，確保你還可以打字跟按按鈕 */
+  pointer-events: auto; 
+}
+#csg-modal h2 { margin: 0; font-size: 20px; color: #3c4043; }
+#csg-modal input, #csg-modal select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.csg-btn-group { display: flex; justify-content: flex-end; gap: 12px; }
+.csg-btn {
+  padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;
+}
+.csg-btn-cancel { background: #f1f3f4; color: #3c4043; }
+.csg-btn-primary { background: #1967d2; color: white; }
